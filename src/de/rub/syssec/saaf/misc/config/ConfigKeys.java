@@ -194,8 +194,16 @@ public enum ConfigKeys {
 	ANALYSIS_INCLUDE_AD_FRAMEWORKS("analysis.include.adpackages",true),
 
 	/**
+	 * Retrieve the max fuzzy level value for the backtracking. Default is 10
+	 */
+	
+	ANALYSIS_MAX_FUZZY_LEVEL("analysis.maxfuzzylevel",10),
+	
+	
+	/**
 	 * Retrieve the name of the report template to use. The default is "xml.stg"
 	 */
+	
 	REPORT_TEMPLATE("reporting.templates.template.default", "report"),
 	/**
 	 * Retrieve the template group for reporting (only needed with
@@ -361,8 +369,9 @@ public enum ConfigKeys {
 	
 	private String name;
 	public String defaultString;
+	public int defaultInt;
 	public boolean defaultBoolean;
-
+	
 	private ConfigKeys(String name) {
 		this.name = name;
 	}
@@ -372,6 +381,10 @@ public enum ConfigKeys {
 		this.defaultString = defaultValue;
 	}
 
+	private ConfigKeys(String name, int defaultValue) {
+		this.name = name;
+		this.defaultInt = defaultValue;
+	}	
 	private ConfigKeys(String name, boolean defaultValue) {
 		this.name = name;
 		this.defaultBoolean = defaultValue;
