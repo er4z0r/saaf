@@ -24,6 +24,8 @@ import org.apache.log4j.Logger;
 
 import de.rub.syssec.saaf.application.methods.BasicBlock;
 import de.rub.syssec.saaf.misc.ByteUtils;
+import de.rub.syssec.saaf.misc.config.Config;
+import de.rub.syssec.saaf.misc.config.ConfigKeys;
 import de.rub.syssec.saaf.model.application.BasicBlockInterface;
 import de.rub.syssec.saaf.model.application.CodeLineInterface;
 import de.rub.syssec.saaf.model.application.DetectionLogicError;
@@ -45,8 +47,7 @@ public class TodoList {
 	
 	private static final Logger LOGGER = Logger.getLogger(TodoList.class);
 	
-	// TODO: Make it configurable
-	protected static final int MAX_FUZZY_LEVEL = 10;
+	protected static final int MAX_FUZZY_LEVEL = Config.getInstance().getIntConfigValue(ConfigKeys.ANALYSIS_MAX_FUZZY_LEVEL, 10);
 	protected static final int MAX_RS_COUNT = 100000;
 	
 	
